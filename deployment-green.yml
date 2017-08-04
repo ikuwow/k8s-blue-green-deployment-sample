@@ -1,0 +1,18 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: green-deployment
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        type: webapp
+        color: green
+    spec:
+      containers:
+        - name: green-environment
+          image: greenenv
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80

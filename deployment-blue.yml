@@ -1,0 +1,18 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: blue-deployment
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        type: webapp
+        color: blue
+    spec:
+      containers:
+        - name: blue-environment
+          image: blueenv
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
